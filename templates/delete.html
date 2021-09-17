@@ -1,0 +1,76 @@
+{% extends 'content.html' %}
+{% load static %}
+
+{% block aditional_head %}
+    <!--begin::JqueryConfirm css-->
+    <link href="{% static 'lib/jqueryconfirm-3.4.4/jquery-confirm.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content_body %}
+    <form method="post" action="keep">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="{{ action }}">
+        <div class="k-content	k-grid__item k-grid__item--fluid k-grid k-grid--hor" id="k_content">
+            <div class="k-content__body	k-grid__item k-grid__item--fluid" id="k_content_body">
+                <div class="k-portlet k-portlet--mobile">
+                    <div class="k-portlet__head align-items-center">
+                        <div class="k-portlet__head-label">
+                            <h3 class="k-portlet__head-title">
+                                {{ title }}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="k-portlet__body">
+                        <div class="alert alert-danger fade show pt-5" role="alert">
+                            <div class="alert-icon mx-2 mx-md-3 mx-lg-4"><i class="flaticon-warning" style="font-size: 3.4rem;"></i></div>
+                            <div class="alert-text">
+                                <h4 class="alert-heading">Alerta!</h4>
+                                <p>Se va a eliminar el registro de
+                                    {% block delete_cliente %}
+
+                                    {% endblock %}.
+                                    Si elimina este registro, no será posible recuperarlo posteriormente. Por favor asegurarse de eliminar el registro correcto.  </p>
+                                <p class="mb-0"><strong>¿Seguro desea continuar?</strong></p>
+                                <hr>
+                                <div class="container">
+                                    <div class="row align-items-center">
+                                        <div class="col-12">
+                                            <div class="d-flex flex-row-reverse bd-highlight">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-outline-light">Aceptar</button>
+                                                        <a class="btn btn-outline-light" href="{{ list_url }}">Cancelar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block aditional_javasrcipt %}
+
+    <script src="{% static 'js/functions.js' %}"></script>
+
+    <!--begin::JqueryConfirm js-->
+    <script src="{% static 'lib/jqueryconfirm-3.4.4/jquery-confirm.min.js' %}"></script>
+
+    !--begin::Control de errores-->
+    <script>
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            var parameters = $(this).serializeArray();
+            submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de eliminar el siguiente registro?', parameters, function () {
+                location.href = '{{ list_url }}';
+            });
+        });
+
+    </script>
+{% endblock %}

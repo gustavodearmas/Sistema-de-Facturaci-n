@@ -1,0 +1,45 @@
+{% extends 'content.html' %}
+{% load static %}
+
+#Bloque adicional del header
+{% block aditional_head %}
+    !--begin::JqueryConfirm css-->
+    <link href="{% static 'lib/jqueryconfirm-3.4.4/jquery-confirm.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+#Bloque del Body
+{% block content_body %}
+    <p>Este es el DASHBOARD</p>
+{% endblock %}
+
+{% block aditional_javasrcipt %}
+
+    !--begin::JqueryConfirm js-->
+    <script src="{% static 'lib/jqueryconfirm-3.4.4/jquery-confirm.min.js' %}"></script>
+
+    !--begin::Script Plugins JqueryConfirm-->
+    <script>
+        $.confirm({
+            title: 'Confirm!',
+            content: 'Simple confirm!',
+            buttons: {
+                confirm: function () {
+                    $.alert('Confirmed!');
+                },
+                cancel: function () {
+                    $.alert('Canceled!');
+                },
+                somethingElse: {
+                    text: 'Something else',
+                    btnClass: 'btn-blue',
+                    keys: ['enter', 'shift'],
+                    action: function(){
+                        $.alert('Something else?');
+                    }
+                }
+            }
+        });
+
+    </script>
+{% endblock %}
+

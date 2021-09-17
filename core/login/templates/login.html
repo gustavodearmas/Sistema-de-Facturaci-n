@@ -1,0 +1,269 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+
+<!-- 
+Theme: Keen - The Ultimate Bootstrap Admin Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: You must have a valid license purchased only from https://themes.getbootstrap.com/product/keen-the-ultimate-bootstrap-admin-theme/ in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+<!-- begin::Head -->
+<head>
+    <meta charset="utf-8" />
+    <title>facvo | Login</title>
+    <meta name="description" content="User login example">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--begin::Web font -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!--end::Web font -->
+
+    <!--begin::Page Custom Styles -->
+    <link href="{% static 'lib/keep/css/login-v2.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/custom/user/login-v2.rtl.css" rel="stylesheet" type="text/css" />-->
+
+    <!--end::Page Custom Styles -->
+
+    <!--begin::Global Theme Styles -->
+    <link href="{% static 'lib/keep/css/vendors.bundle.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/vendors/base/vendors.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+    <link href="{% static 'lib/keep/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/demo/default/base/style.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
+    <!--end::Global Theme Styles -->
+
+    <!--begin::Layout Skins -->
+    <link href="{% static 'lib/keep/css/light2.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/demo/default/skins/header/base/light.rtl.css" rel="stylesheet" type="text/css" />-->
+    <link href="{% static 'lib/keep/css/light.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/demo/default/skins/header/menu/light.rtl.css" rel="stylesheet" type="text/css" />-->
+    <link href="{% static 'lib/keep/css/navy2.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/demo/default/skins/brand/navy.rtl.css" rel="stylesheet" type="text/css" />-->
+    <link href="{% static 'lib/keep/css/navy.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--RTL version:<link href="../../assets/demo/default/skins/aside/navy.rtl.css" rel="stylesheet" type="text/css" />-->
+
+    <script src="{% static 'lib/sweetalert2-9.10.0/sweetalert2.all.min.js' %}"></script>
+
+    <!--end::Layout Skins -->
+    <link rel="shortcut icon" href="../../assets/media/logos/favicon.ico" />
+</head>
+
+<!-- end::Head -->
+
+<!-- begin::Body -->
+<body class="k-login-v2--enabled k-header--fixed k-header-mobile--fixed k-aside--enabled k-aside--fixed">
+
+<!-- begin:: Page -->
+<div class="k-grid k-grid--ver k-grid--root k-page">
+    <div class="k-grid__item   k-grid__item--fluid k-grid  k-grid k-grid--hor k-login-v2" id="k_login_v2">
+
+        <!--begin::Item-->
+        <div class="k-grid__item  k-grid--hor  pb-sm-1 pb-md-2 pb-lg-5 ">
+
+            <!--begin::Heade-->
+            <div class="k-login-v2__head">
+                <div class="k-login-v2__head-logo">
+                    <a href="#">
+                        <img src="{% static 'img/logo-positivo.png' %}" alt="" />
+                    </a>
+                </div>
+                <div class="k-login-v2__head-signup">
+                    <span>¿Aún no tienes una cuenta?</span>
+                    <a href="#" class="k-link k-font-brand">Crear cuenta</a>
+                </div>
+            </div>
+
+            <!--begin::Head-->
+        </div>
+
+        <!--end::Item-->
+
+        <!--begin::Item-->
+        <div class="k-grid__item  k-grid  k-grid--ver  k-grid__item--fluid ">
+
+            <!--begin::Body-->
+            <div class="k-login-v2__body">
+
+                <!--begin::Wrapper-->
+                <div class="k-login-v2__body-wrapper">
+                    <div class="k-login-v2__body-container">
+                        <div class="k-login-v2__body-title">
+                            <h3>{{ tittle }}</h3>
+                        </div>
+
+                        <!--begin::Form-->
+                        <form  method="post" action="." autocomplete="off" id="form2" class="k-login-v2__body-form k-form k-login-v2__body-form--border">
+                            <input type="hidden" name="next" value="{{ next }}" >
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:Username'|attr:'name:username'|attr:'type:text'|attr:'style:padding-left:10px;' }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:Password'|attr:'name:password'|attr:'type:password'|attr:'style:padding-left:10px;' }}
+                            </div>
+
+                        </form>
+
+                        <!--end::Form-->
+
+                        <!--begin::Action-->
+                        <div class="k-login-v2__body-action k-login-v2__body-action--brand">
+                            <a href="#" class="k-link k-link--brand">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                            <button type="submit" class="btn btn-pill btn-brand btn-elevate" form="form2">Ingresar</button>
+                        </div>
+
+                        <!--end::Action-->
+
+                        <!--begin::Separator-->
+                        <div class="k-login-v2__body-separator">
+                            <div class="k-separator k-separator--space-lg  k-separator--border-solid"></div>
+                        </div>
+
+                        <!--end::Separator-->
+                        <h3 class="k-login-v2__body-subtitle">O inciciar sesión con:</h3>
+
+                        <!--begin::Options-->
+                        <div class="k-login-v2__body-options">
+                            <a href="#" class="btn k-font-primary k-login-v2__body-option--primary">
+                                <i class="fab fa-facebook-f k-font-primary"></i>
+                                Facebook
+                            </a>
+                            <a href="#" class="btn k-font-info k-login-v2__body-option--info">
+                                <i class="fab fa-twitter k-font-info"></i>
+                                Twitter
+                            </a>
+                            <a href="#" class="btn k-font-warning k-login-v2__body-option--warning">
+                                <i class="fab fa-google k-font-warning"></i>
+                                Google
+                            </a>
+                        </div>
+
+                        <!--end::Options-->
+                    </div>
+                </div>
+
+                <!--end::Wrapper-->
+
+                <!--begin::Pic-->
+                <div class="k-login-v2__body-pic">
+                    <img src="{% static 'img/bg_icon.svg' %}" alt="">
+                </div>
+
+                <!--begin::Pic-->
+            </div>
+
+            <!--begin::Body-->
+        </div>
+
+        <!--end::Item-->
+
+        <!--begin::Item-->
+        <div class="k-grid__item">
+            <div class="k-login-v2__footer">
+                <div class="k-login-v2__footer-link">
+                    <a href="#" class="k-link k-font-brand">Privacy</a>
+                    <a href="#" class="k-link k-font-brand">Legal</a>
+                    <a href="#" class="k-link k-font-brand">Contact0</a>
+                </div>
+                <div class="k-login-v2__footer-info">
+                    <a href="#" class="k-link">&copy; 2020 Bocetto</a>
+                </div>
+            </div>
+        </div>
+
+        <!--end::Item-->
+    </div>
+    <script type="application/javascript">
+        {% if form.errors %}
+            var errors = '';
+            {% for field in form %}
+                {% for error in field.errors %}
+                    errors += '{{ error }}\n';
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                errors += '{{ error }}\n';
+            {% endfor %}
+            Swal.fire({
+                title: 'Error!',
+                text: errors,
+                icon: 'error'
+            });
+        {% endif %}
+    </script>
+</div>
+
+<!-- end:: Page -->
+
+
+<!-- begin::Global Config -->
+<script>
+    var KAppOptions = {
+        "colors": {
+            "state": {
+                "brand": "#5d78ff",
+                "metal": "#c4c5d6",
+                "light": "#ffffff",
+                "accent": "#00c5dc",
+                "primary": "#5867dd",
+                "success": "#34bfa3",
+                "info": "#36a3f7",
+                "warning": "#ffb822",
+                "danger": "#fd3995",
+                "focus": "#9816f4"
+            },
+            "base": {
+                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+            }
+        }
+    };
+</script>
+
+<!-- end::Global Config -->
+
+<!--begin::Global Theme Bundle -->
+<script src="{% static 'lib/keep/js/vendors.bundle.js' %}" type="text/javascript"></script>
+<script src="{% static 'lib/keep/js/scripts.bundle.js' %}" type="text/javascript"></script>
+
+<!--end::Global Theme Bundle -->
+
+<!--begin::Page Scripts -->
+<script src="{% static 'lib/keep/js/scripts.bundle.js' %}" type="text/javascript"></script>
+
+<!--end::Page Scripts -->
+
+<!--begin::Global App Bundle -->
+<script src="{% static 'lib/keep/js/app.bundle.js' %}" type="text/javascript"></script>
+
+<!--end::Global App Bundle -->
+</body>
+
+<!-- end::Body -->
+</html>

@@ -1,0 +1,34 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block content %}
+<div class="k-content	k-grid__item k-grid__item--fluid k-grid k-grid--hor" id="k_content">
+
+    <!-- begin:: Content Head -->
+    {% block content_head %}
+        <div class="k-content__head	k-grid__item">
+            <div class="k-content__head-main">
+                <h3 class="k-content__head-title">Dashboard</h3>
+                <div class="k-content__head-breadcrumbs">
+                    <a href="#" class="k-content__head-breadcrumb-home"><i class="flaticon2-shelter"></i></a>
+                    <span class="k-content__head-breadcrumb-separator"></span>
+                    <a href="" class="k-content__head-breadcrumb-link">Dashboards</a>
+                    <span class="k-content__head-breadcrumb-separator"></span>
+                    <a href="" class="k-content__head-breadcrumb-link">Navy Aside</a>
+
+                    <!-- <span class="k-content__head-breadcrumb-link k-content__head-breadcrumb-link--active">Active link</span> -->
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <!-- end:: Content Head -->
+
+
+    <!-- begin:: Content Body -->
+    {% block content_body %}
+
+    {% endblock %}
+    <!-- end:: Content Body -->
+
+</div>
+{% endblock %}

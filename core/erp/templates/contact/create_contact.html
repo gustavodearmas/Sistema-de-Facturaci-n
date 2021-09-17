@@ -1,0 +1,162 @@
+{% extends 'form.html' %}
+{% load static %}
+
+{% block form %}
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label>{{ form.type_identification.label }}:</label>
+            <div>
+                {{ form.type_identification }}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <label class="">{{ form.identification.label }}:</label>
+            {{ form.identification }}
+            <span class="form-text text-muted"></span>
+        </div>
+        <div class="col-lg-4" >
+            <label>{{ form.dv.label }}:</label>
+            {{ form.dv }}
+            <span class="form-text text-muted"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label>{{ form.name_client_1.label }}:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                {{ form.name_client_1 }}
+            </div>
+            <span class="form-text text-muted"></span>
+        </div>
+        <div class="col-lg-4">
+            <label class="">{{ form.name_client_1.label }}:</label>
+            {{ form.name_client_2 }}
+            <span class="form-text text-muted"></span>
+        </div>
+        <div class="col-lg-4">
+            <label>{{ form.last_names_cliente.label }}:</label>
+            {{ form.last_names_cliente }}
+            <span class="form-text text-muted"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label>{{ form.type_person.label }}:</label>
+            {{ form.type_person }}
+        </div>
+        <div class="col-lg-4">
+            <label>{{ form.type_responsibility.label }}</label>
+            {{ form.type_responsibility }}
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label>{{ form.country.label }}:</label>
+            {{ form.country }}
+        </div>
+        <div class="col-lg-4">
+            <label>{{ form.departament.label }}:</label>
+            {{ form.departament }}
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label>{{ form.city.label }}:</label>
+            {{ form.city }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-8">
+            <label class="">{{ form.address.label }}:</label>
+            {{ form.address }}
+        </div>
+        <div class="col-4">
+            <label class="">Cód. postal:</label>
+            <div class="k-input-icon k-input-icon--right">
+                <input type="text" class="form-control" placeholder="Cristian mija">
+                <span class="k-input-icon__icon k-input-icon__icon--right"><span><i class="la la-bookmark-o"></i></span></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label class="">{{ form.mobile.label }}:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
+                {{ form.mobile }}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <label class="">{{ form.tel_1.label }}:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+                {{ form.tel_1 }}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <label class="">{{ form.tel_2.label }}:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+                {{ form.tel_2 }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <label class="">{{ form.email.label }}:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                {{ form.email }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <label class="">Tipo de contacto:</label>
+            <div class="k-checkbox-inline">
+                <label class="k-checkbox">
+                    {{ form.provider }} {{ form.provider.label }}
+                    <span></span>
+                </label>
+                <label class="k-checkbox">
+                    {{ form.client }} {{ form.client.label }}
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block aditional_javasrcipt2 %}
+    {{ block.super }}
+    <!--<script>
+       //$(function () {
+       //    $('select[name="country"]').on('change', function () {
+       //        var id =$(this).val();
+       //        $.ajax({
+       //            url: window.location.pathname,
+       //            type: 'POST',
+       //            data: {
+       //                'action': 'search_product_id',
+       //                'id': id
+       //            },
+       //            dataType: 'json',
+       //        }).done(function (data) {
+       //            if(!data.hasOwnProperty('error')){
+       //                callback();
+       //                return false;
+       //            }
+       //            message_error(data.error);
+       //        }).fail(function (jqXHR, textStatus, errorThrown) {
+       //            alert(textStatus+': '+errorThrown);
+       //        }).always(function (data) {
+       //        });
+
+       //    });
+       //});
+    </script>
+
+{% endblock %}

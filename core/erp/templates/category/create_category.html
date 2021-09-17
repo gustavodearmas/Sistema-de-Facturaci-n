@@ -1,0 +1,18 @@
+{% extends 'form.html' %}
+{% load static %}
+
+{% block form %}
+    <div class="form-group row">
+        <div class="col-lg-12">
+            <label>{{ form.name.label }}:</label>
+            <div>
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="col-lg-12 mt-3">
+            <label class="">{{ form.desc.label }}:</label>
+            {{ form.desc }}
+            <span class="form-text text-muted"></span>
+        </div>
+    </div>
+{% endblock %}
